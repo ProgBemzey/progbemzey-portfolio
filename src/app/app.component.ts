@@ -5,7 +5,7 @@ import { AboutComponent } from './sections/about/about.component';
 import { StackComponent } from "./sections/stack/stack.component";
 import { ServicesComponent } from "./sections/services/services.component";
 import { ProjectsComponent } from "./sections/projects/projects.component";
-// import { ContactComponent } from "./sections/contact/contact";
+import { ContactComponent } from "./sections/contact/contact.component";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ import { ProjectsComponent } from "./sections/projects/projects.component";
     StackComponent,
     ServicesComponent,
     ProjectsComponent,
-    // ContactComponent
+    ContactComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

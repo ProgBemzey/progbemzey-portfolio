@@ -1,0 +1,76 @@
+<section id="contact">
+    <div class="container">
+        <div class="section-label">
+            {{ isSpanish() ? 'Contacto' : 'Contact' }}
+        </div>
+        <h2 class="section-title">
+            {{ isSpanish() ? '¿Tienes un proyecto?' : 'Have a project?' }}
+        </h2>
+        <p class="section-sub">
+            {{ isSpanish() ? 'Cuéntame tu idea y te respondo a la brevedad.' : 'Tell me your idea and I will get back to you shortly.' }}
+        </p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>{{ isSpanish() ? 'Encuéntrame en' : 'Find me on' }}</h3>
+                    <p>{{ isSpanish() ? 'También puedes escribirme directamente por cualquiera de estas redes.' : 'You can also write to me directly on any of these networks.' }}</p>
+                    <div class="social-links">
+                        @for (social of socials; track social.name) {
+                        <a [href]="social.url" target="_blank" class="social-link">
+                            <div class="social-icon" [ngClass]="social.colorClass">
+                                {{ social.icon }}
+                            </div>
+                            <div class="social-info">
+                                <span class="social-name">{{ social.name }}</span>
+                                <span class="social-handle">{{ social.handle }}</span>
+                            </div>
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>{{ isSpanish() ? 'Envíame un mensaje' : 'Send me a message' }}</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>{{ isSpanish() ? 'Nombre' : 'Name' }}</label>
+                        <input type="text" [(ngModel)]="form.name"
+                            [placeholder]="isSpanish() ? 'Tu nombre' : 'Your name'" />
+                    </div>
+                    <div class="form-group">
+                        <label>{{ isSpanish() ? 'Correo' : 'Email' }}</label>
+                        <input type="email" [(ngModel)]="form.email"
+                            [placeholder]="isSpanish() ? 'tu@correo.com' : 'your@email.com'" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>{{ isSpanish() ? 'Servicio de interés' : 'Service of interest' }}</label>
+                    <select [(ngModel)]="form.service">
+                        <option value="">{{ isSpanish() ? 'Selecciona un servicio...' : 'Select a service...' }}
+                        </option>
+                        @for (opt of serviceOptions; track $index) {
+                        <option [value]="isSpanish() ? opt.labelEs : opt.labelEn">
+                            {{ isSpanish() ? opt.labelEs : opt.labelEn }}
+                        </option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>{{ isSpanish() ? 'Mensaje' : 'Message' }}</label>
+                    <textarea [(ngModel)]="form.message"
+                        [placeholder]="isSpanish() ? 'Cuéntame sobre tu proyecto...' : 'Tell me about your project...'">
+          </textarea>
+                </div>
+                <button class="submit-btn" (click)="sendWhatsApp()" [disabled]="sent()">
+                    @if (sent()) {
+                    <span class="material-icons-round">check_circle</span>
+                    {{ isSpanish() ? '¡Mensaje enviado!' : 'Message sent!' }}
+                    } @else {
+                    <span>💬</span>
+                    {{ isSpanish() ? 'Enviar por WhatsApp' : 'Send via WhatsApp' }}
+                    }
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
