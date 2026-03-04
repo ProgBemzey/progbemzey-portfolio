@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { HeroComponent } from './sections/hero/hero.component';
-// import { AboutComponent } from "./sections/about/about";
-// import { StackComponent } from "./sections/stack/stack";
+import { AboutComponent } from './sections/about/about.component';
+import { StackComponent } from "./sections/stack/stack.component";
 // import { ServicesComponent } from "./sections/services/services";
 // import { ProjectsComponent } from "./sections/projects/projects";
 // import { ContactComponent } from "./sections/contact/contact";
@@ -13,8 +13,8 @@ import { HeroComponent } from './sections/hero/hero.component';
   imports: [
     NavbarComponent,
     HeroComponent,
-    // AboutComponent,
-    // StackComponent,
+    AboutComponent,
+    StackComponent,
     // ServicesComponent,
     // ProjectsComponent,
     // ContactComponent

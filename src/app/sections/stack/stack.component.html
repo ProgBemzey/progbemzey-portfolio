@@ -1,0 +1,28 @@
+<section id="stack">
+    <div class="container">
+        <div class="section-label">
+            {{ isSpanish() ? 'Tecnologías' : 'Technologies' }}
+        </div>
+        <h2 class="section-title">
+            {{ isSpanish() ? 'Mi stack técnico' : 'My tech stack' }}
+        </h2>
+        <p class="section-sub">
+            {{
+            isSpanish()
+            ? 'Herramientas y tecnologías con las que trabajo día a día.'
+            : 'Tools and technologies I work with daily.'
+            }}
+        </p>
+        <div class="tech-grid">
+            @for (tech of techs; track tech.name) {
+            <div class="tech-card">
+                <div class="tech-icon">{{ tech.icon }}</div>
+                <div class="tech-name">{{ tech.name }}</div>
+                <span class="tech-level" [ngClass]="tech.levelClass">
+                    {{ isSpanish() ? tech.levelEs : tech.levelEn }}
+                </span>
+            </div>
+            }
+        </div>
+    </div>
+</section>

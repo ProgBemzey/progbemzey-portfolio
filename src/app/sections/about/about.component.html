@@ -1,0 +1,32 @@
+<section id="about">
+    <div class="container">
+        <div class="section-label">
+            {{ isSpanish() ? 'Sobre mí' : 'About me' }}
+        </div>
+        <h2 class="section-title">
+            {{ isSpanish() ? 'Código limpio, resultados reales' : 'Clean code, real results' }}
+        </h2>
+        <p class="section-sub">
+            {{ isSpanish() ? 'Desarrollador frontend con sólidos conocimientos en backend y pasión por crear experiencias de usuario que realmente funcionan.'
+            : 'Frontend developer with solid backend knowledge and a passion for creating user experiences that truly work.' }}
+        </p>
+        <div class="about-grid">
+            <div class="about-card">
+                <p  [innerHTML]="isSpanish() ? 'Soy <strong>ProgBemzey</strong>, desarrollador web con enfoque principal en frontend pero con experiencia fullstack. Trabajo principalmente con <strong>Angular 20 (Signals)</strong> y <strong>ASP .NET Core 8</strong>, construyendo aplicaciones robustas con PostgreSQL.' : 'I am <strong>ProgBemzey</strong>, a web developer focused primarily on frontend but with fullstack experience. I mainly work with <strong>Angular 20 (Signals)</strong> and <strong>ASP .NET Core 8</strong>, building robust applications with PostgreSQL.'">
+                </p>
+                <p class="bio-second"
+                    [innerHTML]="isSpanish() ? 'Me apasiona la calidad del código, la experiencia del usuario y mantenerme actualizado con las últimas tecnologías del ecosistema web.' : 'I am passionate about code quality, user experience, and staying up to date with the latest web technologies.'">
+                </p>
+            </div>
+            <div class="highlights">
+                @for (item of highlights; track item.icon) {
+                <div class="highlight-item">
+                    <span class="material-icons-round">{{ item.icon }}</span>
+                    <span>{{ isSpanish() ? item.labelEs : item.labelEn }}</span>
+                </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
