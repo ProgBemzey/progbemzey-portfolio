@@ -1,0 +1,24 @@
+<nav [class.scrolled]="scrolled()">
+    <a class="logo" (click)="scrollTo('hero')">
+        <div class="logo-icon">&lt;/&gt;</div>
+        <span class="logo-text">ProgBemzey</span>
+    </a>
+    <div class="nav-links" [class.open]="menuOpen()">
+        @for (link of links; track link.target) {
+        <button (click)="scrollTo(link.target)">
+            {{ isSpanish() ? link.labelEs : link.labelEn }}
+        </button>
+        }
+    </div>
+    <div class="nav-controls">
+        <button class="lang-btn" (click)="toggleLang()">
+            {{ isSpanish() ? 'EN' : 'ES' }}
+        </button>
+        <button class="icon-btn" (click)="toggleTheme()" [title]="isDark() ? 'Modo claro' : 'Modo oscuro'">
+            <span class="material-icons-round">{{ isDark() ? 'light_mode' : 'dark_mode' }}</span>
+        </button>
+        <button class="icon-btn hamburger" (click)="toggleMenu()">
+            <span class="material-icons-round">{{ menuOpen() ? 'close' : 'menu' }}</span>
+        </button>
+    </div>
+</nav>
