@@ -1,0 +1,16 @@
+footer {
+    border-top: 1px solid var(--border);
+    padding: 32px;
+    text-align: center;
+    color: var(--text2);
+    font-size: 13px;
+
+    strong {
+        color: var(--green-light);
+    }
+
+    p+p {
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}

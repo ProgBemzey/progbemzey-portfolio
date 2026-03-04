@@ -1,2 +1,178 @@
-@use "tailwindcss";
-@use '@angular/material' as mat;
+@import "tailwindcss";
+
+// ── Google Fonts ──────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Nunito:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+
+// ── CSS Variables ─────────────────────────────────────
+:root {
+    --green: #3a8a3a;
+    --green-light: #4caf50;
+    --green-glow: rgba(58, 138, 58, 0.18);
+    --green-border: rgba(76, 175, 80, 0.25);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+[data-theme="dark"] {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #181818;
+    --card: #141414;
+    --card2: #1a1a1a;
+    --text: #f0f0f0;
+    --text2: #a0a0a0;
+    --border: rgba(255, 255, 255, 0.07);
+    --nav-bg: rgba(10, 10, 10, 0.92);
+    --input-bg: #1a1a1a;
+}
+
+[data-theme="light"] {
+    --bg: #f5f7f5;
+    --bg2: #eef2ee;
+    --bg3: #e5ebe5;
+    --card: #ffffff;
+    --card2: #f0f5f0;
+    --text: #111111;
+    --text2: #555555;
+    --border: rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(245, 247, 245, 0.92);
+    --input-bg: #f0f5f0;
+}
+
+// ── Reset & Base ──────────────────────────────────────
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background var(--transition), color var(--transition);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+// ── Scrollbar ─────────────────────────────────────────
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 3px;
+}
+
+// ── Utilidades compartidas ────────────────────────────
+.section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--green-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-sub {
+    color: var(--text2);
+    font-size: 16px;
+    margin-bottom: 48px;
+    max-width: 500px;
+}
+
+.btn-primary {
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    background: var(--green);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+        background: var(--green-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(58, 138, 58, 0.35);
+    }
+}
+
+.btn-outline {
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+        border-color: var(--green);
+        color: var(--green-light);
+        background: var(--green-glow);
+    }
+}
+
+.tag {
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    color: var(--green-light);
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    border: 1px solid var(--green-border);
+}
+
+// ── Fade-in animation ─────────────────────────────────
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
