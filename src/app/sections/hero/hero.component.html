@@ -1,0 +1,43 @@
+<section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content" [class.visible]="visible()">
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            {{ isSpanish() ? 'Disponible para proyectos' : 'Available for projects' }}
+        </div>
+        <h1 class="hero-title">
+            Full-Stack<br />
+            <span class="accent">Developer</span>
+        </h1>
+        <p class="hero-sub">
+            {{ isSpanish() ? 'Especializado en Angular & .NET Core. Construyo aplicaciones web modernas, escalables y con diseño cuidado al detalle.'
+                : 'Specialized in Angular & .NET Core. I build modern, scalable web applications with attention to detail.'
+            }}
+        </p>
+        <div class="hero-ctas">
+            <button class="btn-primary" (click)="scrollTo('contact')">
+                <span class="material-icons-round">chat</span>
+                {{ isSpanish() ? 'Hablemos' : "Let's talk" }}
+            </button>
+            <button class="btn-outline" (click)="scrollTo('projects')">
+                <span class="material-icons-round">folder_open</span>
+                {{ isSpanish() ? 'Ver proyectos' : 'View projects' }}
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>2+</h3>
+                <p>{{ isSpanish() ? 'Años de experiencia' : 'Years of experience' }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>{{ isSpanish() ? 'Tecnologías' : 'Technologies' }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>{{ isSpanish() ? 'Compromiso' : 'Commitment' }}</p>
+            </div>
+        </div>
+    </div>
+</section>

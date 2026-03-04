@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
-// import { HeroComponent } from "./sections/hero/hero";
+import { HeroComponent } from './sections/hero/hero.component';
 // import { AboutComponent } from "./sections/about/about";
 // import { StackComponent } from "./sections/stack/stack";
 // import { ServicesComponent } from "./sections/services/services";
@@ -12,7 +12,7 @@ import { NavbarComponent } from "./layout/navbar/navbar.component";
   standalone: true,
   imports: [
     NavbarComponent,
-    // HeroComponent,
+    HeroComponent,
     // AboutComponent,
     // StackComponent,
     // ServicesComponent,

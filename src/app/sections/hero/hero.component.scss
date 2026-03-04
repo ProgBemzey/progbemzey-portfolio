@@ -1,0 +1,136 @@
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 8% 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 50% at 70% 50%,
+            rgba(58, 138, 58, 0.12) 0%,
+            transparent 70%);
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image:
+        linear-gradient(var(--green) 1px, transparent 1px),
+        linear-gradient(90deg, var(--green) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-glow);
+    border: 1px solid var(--green-border);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-light);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green-light);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.4);
+    }
+}
+
+.hero-title {
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.0;
+    margin-bottom: 20px;
+
+    .accent {
+        color: var(--green-light);
+    }
+}
+
+.hero-sub {
+    font-size: 18px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 560px;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+
+    .stat-item {
+        h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--green-light);
+        }
+
+        p {
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 2px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 100px 20px 60px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+}
