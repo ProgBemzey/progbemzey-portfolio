@@ -1,6 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/services/language';
+import { FadeInDirective } from "../../shared/directives/fade-in";
 
 type Category = 'all' | 'enterprise' | 'freelance' | 'personal';
 
@@ -42,7 +43,7 @@ interface FilterBtn {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FadeInDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

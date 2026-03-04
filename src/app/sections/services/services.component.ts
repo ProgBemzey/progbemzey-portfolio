@@ -2,6 +2,7 @@ import { Component, inject, computed } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/services/language';
 import { CurrencyService } from '../../core/services/currency';
+import { FadeInDirective } from "../../shared/directives/fade-in";
 
 interface ServiceItem {
   id: string;
@@ -19,7 +20,7 @@ interface ServiceItem {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FadeInDirective],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })

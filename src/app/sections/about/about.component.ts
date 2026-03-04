@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../core/services/language';
+import { FadeInDirective } from "../../shared/directives/fade-in";
 
 interface Highlight {
   icon: string;
@@ -11,7 +12,8 @@ interface Highlight {
   selector: 'app-about',
   standalone: true,
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrl: './about.component.scss',
+  imports: [FadeInDirective]
 })
 export class AboutComponent {
   langService = inject(LanguageService);

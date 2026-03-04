@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../core/services/language';
 import { NgClass } from '@angular/common';
+import { FadeInDirective } from "../../shared/directives/fade-in";
 
 interface SocialLink {
   icon: string;
@@ -26,7 +27,7 @@ interface ServiceOption {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule, NgClass, FadeInDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })

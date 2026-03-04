@@ -1,9 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { LanguageService } from '../../core/services/language';
+import { FadeInDirective } from '../../shared/directives/fade-in';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
+  imports: [FadeInDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })

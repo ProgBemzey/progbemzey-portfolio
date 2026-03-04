@@ -1,7 +1,7 @@
 <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
-    <div class="hero-content" [class.visible]="visible()">
+    <div class="hero-content" [class.visible]="visible()" appFadeIn>
         <div class="hero-badge">
             <span class="pulse-dot"></span>
             {{ isSpanish() ? 'Disponible para proyectos' : 'Available for projects' }}

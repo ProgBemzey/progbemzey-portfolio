@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/services/language';
+import { FadeInDirective } from "../../shared/directives/fade-in";
 
 interface TechItem {
   icon: string;
@@ -13,7 +14,7 @@ interface TechItem {
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FadeInDirective],
   templateUrl: './stack.component.html',
   styleUrl: './stack.component.scss'
 })
