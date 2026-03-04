@@ -49,7 +49,7 @@ interface FilterBtn {
 })
 export class ProjectsComponent {
   langService = inject(LanguageService);
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
 
   activeFilter = signal<Category>('all');
 

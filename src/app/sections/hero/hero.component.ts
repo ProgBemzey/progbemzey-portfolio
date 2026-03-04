@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { LanguageService } from '../../core/services/language';
 import { FadeInDirective } from '../../shared/directives/fade-in';
 
@@ -11,7 +11,7 @@ import { FadeInDirective } from '../../shared/directives/fade-in';
 })
 export class HeroComponent implements OnInit {
   langService = inject(LanguageService);
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
   visible = signal(false);
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../core/services/language';
 import { NgClass } from '@angular/common';
@@ -33,7 +33,7 @@ interface ServiceOption {
 })
 export class ContactComponent {
   langService = inject(LanguageService);
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
 
   form: ContactForm = {
     name: '',

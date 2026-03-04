@@ -28,7 +28,7 @@ export class ServicesComponent {
   langService = inject(LanguageService);
   currencyService = inject(CurrencyService);
 
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
   currency = this.currencyService.currency;
   rate = this.currencyService.exchangeRate;
 

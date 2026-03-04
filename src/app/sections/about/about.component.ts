@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { LanguageService } from '../../core/services/language';
 import { FadeInDirective } from "../../shared/directives/fade-in";
 
@@ -17,7 +17,7 @@ interface Highlight {
 })
 export class AboutComponent {
   langService = inject(LanguageService);
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
 
   highlights: Highlight[] = [
     {

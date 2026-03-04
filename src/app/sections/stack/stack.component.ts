@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { LanguageService } from '../../core/services/language';
 import { FadeInDirective } from "../../shared/directives/fade-in";
@@ -20,7 +20,7 @@ interface TechItem {
 })
 export class StackComponent {
   langService = inject(LanguageService);
-  isSpanish = this.langService.lang;
+  isSpanish = computed(() => this.langService.lang() === 'es');
 
   techs: TechItem[] = [
     { icon: '🅰️', name: 'Angular 18+', levelEs: 'Avanzado', levelEn: 'Advanced', levelClass: 'level-expert' },
