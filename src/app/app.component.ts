@@ -3,7 +3,7 @@ import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { HeroComponent } from './sections/hero/hero.component';
 import { AboutComponent } from './sections/about/about.component';
 import { StackComponent } from "./sections/stack/stack.component";
-// import { ServicesComponent } from "./sections/services/services";
+import { ServicesComponent } from "./sections/services/services.component";
 // import { ProjectsComponent } from "./sections/projects/projects";
 // import { ContactComponent } from "./sections/contact/contact";
 
@@ -15,7 +15,7 @@ import { StackComponent } from "./sections/stack/stack.component";
     HeroComponent,
     AboutComponent,
     StackComponent,
-    // ServicesComponent,
+    ServicesComponent,
     // ProjectsComponent,
     // ContactComponent
   ],

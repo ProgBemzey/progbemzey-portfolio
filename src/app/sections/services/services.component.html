@@ -1,0 +1,43 @@
+<section id="services">
+    <div class="container">
+        <div class="section-label">
+            {{ isSpanish() ? 'Servicios' : 'Services' }}
+        </div>
+        <h2 class="section-title">
+            {{ isSpanish() ? '¿Qué puedo hacer por ti?' : 'What can I do for you?' }}
+        </h2>
+        <div class="currency-toggle">
+            <span class="currency-label">
+                {{ isSpanish() ? 'Moneda:' : 'Currency:' }}
+            </span>
+            <div class="currency-btns">
+                <button [ngClass]="{ active: isPen() }" (click)="setCurrency('PEN')">
+                    S/ PEN
+                </button>
+                <button [ngClass]="{ active: !isPen() }" (click)="setCurrency('USD')">
+                    $ USD
+                </button>
+            </div>
+            <span class="rate-info">
+                1 USD = <strong>{{ rate() }}</strong> PEN
+            </span>
+        </div>
+        <div class="services-grid">
+            @for (svc of services; track svc.id) {
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="material-icons-round">{{ svc.icon }}</span>
+                </div>
+                <h3>{{ isSpanish() ? svc.titleEs : svc.titleEn }}</h3>
+                <p>{{ isSpanish() ? svc.descEs : svc.descEn }}</p>
+                <div class="service-price">
+                    {{ isPen() ? svc.pricePen : svc.priceUsd }}
+                </div>
+                <div class="service-price-label">
+                    {{ isSpanish() ? svc.priceTypeEs : svc.priceTypeEn }}
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
