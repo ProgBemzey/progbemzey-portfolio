@@ -72,6 +72,11 @@ nav {
             color: var(--green-light);
             background: var(--green-glow);
         }
+
+        &.active {
+            color: var(--green-light);
+            background: var(--green-glow);
+        }
     }
 }
 
@@ -159,6 +164,11 @@ nav {
         button {
             text-align: left;
             padding: 12px 16px;
+        }
+
+        &.active {
+            color: var(--green-light);
+            background: var(--green-glow);
         }
     }
 }

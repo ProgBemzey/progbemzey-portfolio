@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, HostListener, inject, signal, OnInit, OnDestroy } from '@angular/core';
 import { ThemeService } from '../../core/services/theme';
 import { LanguageService } from '../../core/services/language';
 
@@ -14,15 +14,18 @@ interface NavLink {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   themeService = inject(ThemeService);
   langService = inject(LanguageService);
 
   menuOpen = signal(false);
   scrolled = signal(false);
+  activeSection = signal('hero');
 
   isDark = computed(() => this.themeService.theme() === 'dark');
   isSpanish = computed(() => this.langService.lang() === 'es');
+
+  private observer!: IntersectionObserver;
 
   links: NavLink[] = [
     { labelEs: 'Sobre mí', labelEn: 'About', target: 'about' },
@@ -31,6 +34,29 @@ export class NavbarComponent {
     { labelEs: 'Proyectos', labelEn: 'Projects', target: 'projects' },
     { labelEs: 'Contacto', labelEn: 'Contact', target: 'contact' },
   ];
+
+  ngOnInit() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeSection.set(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    const sections = ['hero', 'about', 'stack', 'services', 'projects', 'contact'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) this.observer.observe(el);
+    });
+  }
+
+  ngOnDestroy() {
+    this.observer?.disconnect();
+  }
 
   @HostListener('window:scroll')
   onScroll() {
