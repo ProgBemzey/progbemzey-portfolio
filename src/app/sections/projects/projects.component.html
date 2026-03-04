@@ -1,0 +1,70 @@
+<section id="projects">
+  <div class="container">
+    <div class="section-label">
+      {{ isSpanish() ? 'Portafolio' : 'Portfolio' }}
+    </div>
+    <h2 class="section-title">
+      {{ isSpanish() ? 'Proyectos destacados' : 'Featured projects' }}
+    </h2>
+    <p class="section-sub">
+      {{ isSpanish() ? 'Proyectos reales donde apliqué mis conocimientos técnicos.' : 'Real projects where I applied my technical skills.' }}
+    </p>
+    <div class="proj-filters">
+      @for (f of filters; track f.value) {
+        <button class="filter-btn"
+          [ngClass]="{ active: activeFilter() === f.value }"
+          (click)="setFilter(f.value)">
+          {{ isSpanish() ? f.labelEs : f.labelEn }}
+        </button>
+      }
+    </div>
+    <div class="projects-grid">
+      @for (proj of filtered(); track proj.id) {
+        <div class="project-card">
+          <div class="project-thumb">
+            <div class="thumb-pattern"></div>
+            <span class="thumb-icon">{{ proj.icon }}</span>
+            <div class="project-tags">
+              @for (tag of proj.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+            <span class="type-badge" [ngClass]="getBadgeClass(proj.category)">
+              {{ getBadgeLabel(proj.category) }}
+            </span>
+          </div>
+          <div class="project-body">
+            <h3>{{ isSpanish() ? proj.titleEs : proj.titleEn }}</h3>
+            <p>{{ isSpanish() ? proj.descEs : proj.descEn }}</p>
+            <div class="project-meta">
+              @for (m of proj.meta; track $index) {
+                <span class="meta-item">
+                  <span class="material-icons-round">{{ m.icon }}</span>
+                  {{ isSpanish() ? m.labelEs : m.labelEn }}
+                </span>
+              }
+            </div>
+            @if (proj.confidential === true) {
+              <div class="confidential">
+                <span class="material-icons-round">lock</span>
+                {{ isSpanish() ? 'Proyecto empresarial — código privado por NDA' : 'Enterprise project — private code under NDA' }}
+              </div>
+            }
+            <div class="project-links">
+              @for (link of proj.links; track $index) {
+                <a class="project-link"
+                  [ngClass]="{ disabled: link.disabled }"
+                  [attr.href]="link.disabled ? null : link.url"
+                  [attr.target]="link.disabled ? null : '_blank'">
+                  <span class="material-icons-round">{{ link.icon }}</span>
+                  {{ isSpanish() ? link.labelEs : link.labelEn }}
+                </a>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
